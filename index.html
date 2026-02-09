@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clima Plus Refrigeração | Higienização e Manutenção de Ar-Condicionado</title>
+    <meta name="description" content="Respire melhor e economize energia com a Clima Plus. Especialistas em higienização técnica e manutenção de ar-condicionado." />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Clima Plus Refrigeração - Ar Puro e Saúde" />
+    <meta property="og:description" content="Higienização profunda para seu ar-condicionado. Proteja sua família contra fungos e bactérias." />
+    <meta property="og:type" content="website" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+      .bg-glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+      
+      @keyframes airflow {
+        0% { transform: translateX(-10%) translateY(0) scale(1); opacity: 0; }
+        50% { opacity: 0.5; }
+        100% { transform: translateX(100%) translateY(-5%) scale(1.2); opacity: 0; }
+      }
+      .airflow-line {
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+        width: 200px;
+        animation: airflow 4s infinite linear;
+      }
+      
+      .frost-card {
+        background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(235,245,255,0.5) 100%);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.4);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
