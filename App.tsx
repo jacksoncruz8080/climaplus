@@ -58,24 +58,27 @@ const App: React.FC = () => {
   };
 
   const portfolio: PortfolioItem[] = [
-    { id: 1, image: 'https://picsum.photos/id/1015/800/600', type: 'Split Hi-Wall', location: 'Cuiabá - Centro', result: 'Higienização profunda antibacteriana' },
-    { id: 2, image: 'https://picsum.photos/id/1020/800/600', type: 'Ar Janela', location: 'Várzea Grande', result: 'Remoção de mofo e limpeza de dutos' },
-    { id: 3, image: 'https://picsum.photos/id/1031/800/600', type: 'Cassete', location: 'Cuiabá - Coxipó', result: 'Manutenção preventiva comercial' },
-    { id: 4, image: 'https://picsum.photos/id/1040/800/600', type: 'Piso Teto', location: 'Cuiabá - Santa Rosa', result: 'Recarga de gás e limpeza técnica' },
-    { id: 5, image: 'https://picsum.photos/id/1050/800/600', type: 'Central', location: 'Distrito Industrial', result: 'Revisão completa de eficiência' },
-    { id: 6, image: 'https://picsum.photos/id/1060/800/600', type: 'Split Multi', location: 'Condomínio Florais', result: 'Desobstrução de dreno e higienização' },
+    { id: 1, image: './assets/instalacao.jpg', type: 'Instalação', location: '', result: 'Instalação de ar-condicionado' },
+    { id: 1, image: './assets/reparo.jpeg', type: 'Conserto', location: '', result: 'Conserto de ar-condicionado' },
+    { id: 1, image: './assets/limpeza.jpg', type: 'Higienização', location: '', result: 'Higienização profunda antibacteriana' },
+    { id: 2, image: './assets/limpeza-jato.jpeg', type: 'Remoção de mofo', location: '', result: 'Remoção de mofo e limpeza de dutos' },
+    { id: 3, image: './assets/conserto.jpg', type: 'Manutenção', location: '', result: 'Manutenção preventiva comercial' },
+    { id: 4, image: './assets/recarga.jpg', type: 'Recarga de gás', location: '', result: 'Recarga de gás e limpeza técnica' },
+    { id: 5, image: './assets/revisao.jpg', type: 'Revisão', location: '', result: 'Revisão completa de eficiência' },
+    { id: 6, image: './assets/desobistrucao-dreno.jpg', type: 'Desobstrução de dreno', location: '', result: 'Desobstrução de dreno e higienização' },
   ];
 
   const testimonials: Testimonial[] = [
-    { id: 1, name: 'Marcos Silva', stars: 5, text: 'Serviço impecável. A Clima Plus resolveu o mau cheiro do meu aparelho rapidinho. Técnicos muito educados!' },
-    { id: 2, name: 'Ana Paula', stars: 5, text: 'Atendimento nota 10. Fiz a higienização de 3 aparelhos e a economia de energia já apareceu na conta.' },
-    { id: 3, name: 'Ricardo Santos', stars: 5, text: 'A melhor de Cuiabá. Pontualidade e limpeza durante o serviço. Recomendo de olhos fechados.' },
+    { id: 2, name: 'Fernando Silva', stars: 5, text: 'Empresa excelente!!! Super pontual e serviço de qualidade' },
+    { id: 3, name: 'Matheus Viana', stars: 5, text: 'Instalador excelente, resolveu problema no dreno que ninguém conseguiu, recomendo, preços honestos e de confiança' },    
+    { id: 1, name: 'Jackson Cruz', stars: 5, text: 'Melhor atendimento, o rapaz resolveu um ar que tava parado a muito tempo e achei que nao tinha jeito' },
+    { id: 3, name: 'Gabriel Souza', stars: 5, text: 'Empresa séria e de confiança, já fiz 2 manutenções com eles. Sem dúvida o melhor de Cuiabá-MT.' },
   ];
 
   const faqs: FAQItem[] = [
     { id: 1, question: 'De quanto em quanto tempo devo limpar?', answer: 'Recomendamos a cada 6 meses para residências e a cada 3 meses para escritórios ou locais com muita poeira.' },
-    { id: 2, question: 'A Clima Plus atende empresas?', answer: 'Sim! Temos contratos de manutenção (PMOC) e emissão de nota fiscal para empresas de todos os portes.' },
-    { id: 3, question: 'Faz muita bagunça no local?', answer: 'Não. Utilizamos capas coletoras de água e proteção plástica para móveis e paredes. Deixamos tudo como encontramos.' },
+    { id: 2, question: 'A Clima Plus atende empresas?', answer: 'Sim! Atendemos empresas de todos os portes.' },
+    { id: 3, question: 'Faz muita bagunça no local?', answer: 'Não. Nós utilizamos capas coletoras de água e proteção plástica para móveis e paredes. Deixamos tudo como encontramos.' },
     { id: 4, question: 'Quais marcas vocês atendem?', answer: 'Atendemos todas as marcas do mercado: LG, Samsung, Consul, Elgin, Carrier, Gree, Midea, entre outras.' },
   ];
 
@@ -207,7 +210,7 @@ const App: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: <Droplets />, title: "Limpeza Química", desc: "Produtos biodegradáveis que não agridem seu aparelho." },
-              { icon: <Snowflake />, title: "Recarga de Gás", desc: "Testes de vazamento e recarga R-410A ou R-22." },
+              { icon: <Snowflake />, title: "Recarga de Gás", desc: "Testes de vazamento e recarga R-410A ou R-32." },
               { icon: <Zap />, title: "Menos Consumo", desc: "Um aparelho limpo consome até 30% menos energia." },
               { icon: <ShieldCheck />, title: "Garantia Total", desc: "90 dias de garantia em todos os serviços realizados." },
             ].map((s, i) => (
@@ -268,7 +271,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter italic">Serviços <span className="text-blue-600">Recentes</span></h2>
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter italic">Serviços e <span className="text-blue-600">Portifólio</span></h2>
               <p className="text-slate-500 font-medium">A Clima Plus atende residências, comércios e indústrias em toda a região.</p>
             </div>
             {/* <div className="flex items-center gap-4">
