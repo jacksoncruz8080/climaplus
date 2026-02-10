@@ -177,11 +177,11 @@ const App: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative group overflow-hidden rounded-2xl">
-                  <img src="https://picsum.photos/id/10/400/500" className="w-full h-64 object-cover grayscale opacity-60" alt="Antes" />
+                  <img src="./assets/antes.png" className="w-full h-64 object-cover grayscale opacity-60" alt="Antes" />
                   <div className="absolute top-3 left-3 bg-red-600 text-white px-2 py-0.5 rounded text-[10px] font-bold">AR SUJO</div>
                 </div>
                 <div className="relative group overflow-hidden rounded-2xl">
-                  <img src="https://picsum.photos/id/10/400/500" className="w-full h-64 object-cover brightness-125" alt="Depois" />
+                  <img src="./assets/depois.png" className="w-full h-64 object-cover brightness-125" alt="Depois" />
                   <div className="absolute top-3 left-3 bg-blue-600 text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tighter">Clima Plus</div>
                 </div>
               </div>
@@ -232,7 +232,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-20 items-center">
            <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <img src="https://picsum.photos/id/80/800/800" className="relative rounded-[2.5rem] shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-1000" alt="Saúde" />
+              <img src="./assets/familia.png" className="relative rounded-[2.5rem] shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-1000" alt="Saúde" />
            </div>
            <div className="text-white space-y-8">
               <h2 className="text-4xl lg:text-6xl font-black leading-tight tracking-tight uppercase italic">
@@ -413,7 +413,7 @@ const App: React.FC = () => {
               <h5 className="text-white font-black uppercase tracking-widest text-sm italic">Cobertura</h5>
               <p className="text-sm font-medium">Atendemos Cuiabá, Várzea Grande e o entorno metropolitano.</p>
               <div className="bg-slate-800 p-6 rounded-3xl border border-slate-700 text-xs">
-                <p className="font-black mb-1">UNIDADE MATRIZ</p>
+                <p className="font-black mb-1">UNIDADE</p>
                 <p>Cuiabá - MT</p>
               </div>
             </div>
