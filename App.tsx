@@ -8,7 +8,7 @@ import {
 import { ACType, Urgency, FormData, PortfolioItem, Testimonial, FAQItem } from './types';
 
 // Constants
-const WHATSAPP_NUMBER = '5565999999999';
+const WHATSAPP_NUMBER = '5565992057452';
 const COMPANY_NAME = 'Clima Plus Refrigeração';
 
 const App: React.FC = () => {
@@ -28,6 +28,14 @@ const App: React.FC = () => {
   });
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,26 +85,24 @@ const App: React.FC = () => {
       <header className="fixed top-0 w-full z-50 bg-glass border-b border-blue-100 shadow-sm transition-all duration-300">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-br from-blue-600 to-cyan-500 p-2.5 rounded-xl text-white shadow-lg shadow-blue-200">
-              <Snowflake size={24} className="animate-pulse" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-black text-slate-900 tracking-tight leading-none uppercase italic">Clima <span className="text-blue-600">Plus</span></span>
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Refrigeração</span>
-            </div>
+            <img 
+              src="./assets/logo1.png" 
+              alt="Clima Plus Refrigeração" 
+              className="h-12 w-auto object-contain"
+            />
           </div>
 
           <nav className="hidden lg:flex items-center gap-10">
-            <a href="#inicio" className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors">Início</a>
-            <a href="#beneficios" className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors">Vantagens</a>
-            <a href="#portfolio" className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors">Serviços</a>
-            <a href="#faq" className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors">Dúvidas</a>
+            <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors cursor-pointer">Início</a>
+            <a href="#beneficios" onClick={(e) => scrollToSection(e, 'beneficios')} className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors cursor-pointer">Vantagens</a>
+            <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors cursor-pointer">Serviços</a>
+            <a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="text-slate-600 hover:text-blue-600 font-bold text-sm uppercase tracking-wide transition-colors cursor-pointer">Dúvidas</a>
           </nav>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6 ">
             <a href={`tel:${WHATSAPP_NUMBER}`} className="flex items-center gap-2 text-slate-800 font-extrabold hover:text-blue-600 transition-colors">
               <Phone size={18} className="text-blue-600" />
-              <span>(65) 99999-9999</span>
+              <span>(65) 99205-7452</span>
             </a>
             <button 
               onClick={toggleModal}
@@ -113,9 +119,9 @@ const App: React.FC = () => {
         
         {isMenuOpen && (
           <div className="lg:hidden bg-white border-b border-slate-100 p-6 flex flex-col gap-6 animate-in slide-in-from-top-5">
-            <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold">Início</a>
-            <a href="#beneficios" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold">Vantagens</a>
-            <a href="#portfolio" onClick={() => setIsMenuOpen(false)} className="text-lg font-bold">Portfólio</a>
+            <a href="#inicio" onClick={(e) => { scrollToSection(e, 'inicio'); setIsMenuOpen(false); }} className="text-lg font-bold cursor-pointer">Início</a>
+            <a href="#beneficios" onClick={(e) => { scrollToSection(e, 'beneficios'); setIsMenuOpen(false); }} className="text-lg font-bold cursor-pointer">Vantagens</a>
+            <a href="#portfolio" onClick={(e) => { scrollToSection(e, 'portfolio'); setIsMenuOpen(false); }} className="text-lg font-bold cursor-pointer">Portfólio</a>
             <button onClick={() => { toggleModal(); setIsMenuOpen(false); }} className="bg-blue-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest">Orçamento Grátis</button>
           </div>
         )}
@@ -133,11 +139,14 @@ const App: React.FC = () => {
             <div className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-700 px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest">
               <Wind size={16} className="animate-bounce" /> Especialistas em Climatização
             </div>
-            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight">
-              O frescor do <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Ar Puro</span> na sua casa.
+            <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight ">
+              O frescor do <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 animate-pulse">Ar Puro</span> na sua casa.
             </h1>
             <p className="text-lg lg:text-2xl text-slate-600 leading-relaxed max-w-xl font-medium">
-              A Clima Plus cuida da sua saúde através da higienização profunda do seu ar-condicionado. Elimine ácaros e respire leveza.
+              Instalação, Manutenção e Consertos sempre com qualidade, rapidez e garantia.
+            </p>
+            <p className="text-lg lg:text-2xl text-slate-600 leading-relaxed max-w-xl font-medium">
+              A Clima Plus Refrigeração cuida da sua saúde através da higienização profunda do seu ar-condicionado. Elimine ácaros e respire leveza.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
               <button 
@@ -262,12 +271,12 @@ const App: React.FC = () => {
               <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter italic">Serviços <span className="text-blue-600">Recentes</span></h2>
               <p className="text-slate-500 font-medium">A Clima Plus atende residências, comércios e indústrias em toda a região.</p>
             </div>
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
                <div className="flex -space-x-3">
                  {[1,2,3].map(i => <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-300 overflow-hidden shadow-lg"><img src={`https://picsum.photos/id/${i+40}/100/100`} alt="User" /></div>)}
                </div>
-               <span className="text-sm font-black text-slate-800 uppercase tracking-widest">+2.000 Clientes</span>
-            </div>
+               <span className="text-sm font-black text-slate-800 uppercase tracking-widest">Clientes</span>
+            </div> */}
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -352,7 +361,7 @@ const App: React.FC = () => {
           <p className="text-xl lg:text-3xl font-medium mb-12 opacity-90 max-w-3xl mx-auto italic">Técnicos disponíveis em Cuiabá e Várzea Grande para atendimento hoje.</p>
           <button 
             onClick={toggleModal}
-            className="bg-white text-blue-700 px-12 py-6 rounded-full font-black text-2xl uppercase tracking-tighter shadow-2xl hover:scale-105 transition-all active:scale-95"
+            className="animate-pulse bg-white text-blue-700 px-12 py-6 rounded-full font-black text-2xl uppercase tracking-tighter shadow-2xl hover:scale-105 transition-all active:scale-95"
           >
             PEÇA SEU ORÇAMENTO
           </button>
@@ -364,34 +373,34 @@ const App: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-4 gap-16 mb-20">
             <div className="space-y-8">
-              <div className="flex items-center gap-3 text-white">
-                <div className="bg-blue-600 p-2 rounded-xl"><Snowflake size={24} /></div>
-                <div className="flex flex-col">
-                  <span className="text-2xl font-black uppercase italic tracking-tighter leading-none">Clima <span className="text-blue-500">Plus</span></span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Refrigeração</span>
-                </div>
-              </div>
-              <p className="text-sm font-medium leading-relaxed">Referência em higienização e manutenção preventiva de ar-condicionado. Saúde e economia para o seu ambiente.</p>
+              <div className="flex items-center gap-3 animate-pulse">
+            <img 
+              src="./assets/logo2.png" 
+              alt="Clima Plus Refrigeração" 
+              className="h-12 w-auto object-contain"
+            />
+          </div>
+              <p className="text-sm font-medium leading-relaxed">Referência em instalação, higienização e manutenção preventiva de ar-condicionado. Saúde e economia para o seu ambiente.</p>
               <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center hover:bg-blue-600 transition-colors"><Instagram size={24} className="text-white" /></a>
-                <a href="#" className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center hover:bg-blue-600 transition-colors"><Facebook size={24} className="text-white" /></a>
+                <a href="https://www.instagram.com/climaplus_refrigeracao" className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center hover:bg-blue-600 transition-colors"><Instagram size={24} className="text-white" /></a>
+                {/* <a href="#" className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center hover:bg-blue-600 transition-colors"><Facebook size={24} className="text-white" /></a> */}
               </div>
             </div>
             
             <div className="space-y-6">
               <h5 className="text-white font-black uppercase tracking-widest text-sm italic">Navegação</h5>
               <ul className="space-y-4 font-bold text-sm">
-                <li><a href="#inicio" className="hover:text-white transition-colors">Início</a></li>
-                <li><a href="#beneficios" className="hover:text-white transition-colors">Benefícios</a></li>
-                <li><a href="#portfolio" className="hover:text-white transition-colors">Serviços</a></li>
-                <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+                <li><a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="hover:text-white transition-colors cursor-pointer">Início</a></li>
+                <li><a href="#beneficios" onClick={(e) => scrollToSection(e, 'beneficios')} className="hover:text-white transition-colors cursor-pointer">Benefícios</a></li>
+                <li><a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className="hover:text-white transition-colors cursor-pointer">Serviços</a></li>
+                <li><a href="#faq" onClick={(e) => scrollToSection(e, 'faq')} className="hover:text-white transition-colors cursor-pointer">FAQ</a></li>
               </ul>
             </div>
 
             <div className="space-y-6">
               <h5 className="text-white font-black uppercase tracking-widest text-sm italic">Atendimento</h5>
               <ul className="space-y-4 font-bold text-sm">
-                <li className="flex items-center gap-3"><Phone size={16} className="text-blue-500" /> (65) 99999-9999</li>
+                <li className="flex items-center gap-3"><Phone size={16} className="text-blue-500" /> (65) 99205-7452</li>
                 <li className="flex items-center gap-3"><MessageCircle size={16} className="text-green-500" /> WhatsApp On-line</li>
                 <li className="text-xs opacity-60">Seg à Sáb: 08:00 - 18:00</li>
               </ul>
@@ -399,15 +408,15 @@ const App: React.FC = () => {
 
             <div className="space-y-6">
               <h5 className="text-white font-black uppercase tracking-widest text-sm italic">Cobertura</h5>
-              <p className="text-sm font-medium">Atendemos Cuiabá, Várzea Grande, Chapada e todo o entorno metropolitano.</p>
+              <p className="text-sm font-medium">Atendemos Cuiabá, Várzea Grande e o entorno metropolitano.</p>
               <div className="bg-slate-800 p-6 rounded-3xl border border-slate-700 text-xs">
                 <p className="font-black mb-1">UNIDADE MATRIZ</p>
-                <p>Av. Miguel Sutil, Santa Rosa, Cuiabá - MT</p>
+                <p>Cuiabá - MT</p>
               </div>
             </div>
           </div>
           <div className="pt-10 border-t border-slate-800 text-center text-[10px] font-black uppercase tracking-[0.2em]">
-            &copy; 2024 {COMPANY_NAME}. DESENVOLVIDO COM FOCO EM RESULTADOS.
+            &copy; 2026 {COMPANY_NAME}. Desenvolvido por JS Software e Tecnologia.
           </div>
         </div>
       </footer>
@@ -436,7 +445,7 @@ const App: React.FC = () => {
           <div className="relative bg-white w-full max-w-xl rounded-[3rem] shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300 border border-white/20">
             <div className="bg-gradient-to-br from-blue-700 to-blue-600 p-10 text-white relative">
               <button onClick={toggleModal} className="absolute top-6 right-6 p-2 bg-white/10 rounded-full hover:bg-white/20"><X size={20} /></button>
-              <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-2 leading-none">Orçamento <span className="text-cyan-300">Expresso</span></h3>
+              <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-2 leading-none">Orçamento <span className="text-cyan-300">Rápido</span></h3>
               <p className="text-blue-100 font-medium">Preencha os campos abaixo e receba o valor no WhatsApp.</p>
             </div>
             <form onSubmit={handleSubmit} className="p-10 space-y-5 max-h-[65vh] overflow-y-auto custom-scrollbar">
